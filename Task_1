@@ -1,0 +1,109 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+public class UserInterfaceExample {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> createAndShowGUI());
+    }
+
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("User Interface Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        // Buttons
+        JButton button1 = createButton("Button 1", Color.RED);
+        JButton button2 = createButton("Button 2", Color.GREEN);
+        JButton button3 = createButton("Button 3", Color.BLUE);
+        JButton button4 = createButton("Button 4", Color.YELLOW);
+
+        // Checkboxes
+        JCheckBox checkBox1 = createCheckBox("Checkbox 1");
+        JCheckBox checkBox2 = createCheckBox("Checkbox 2");
+
+        // Radio buttons
+        JRadioButton radio1 = createRadioButton("Radio 1");
+        JRadioButton radio2 = createRadioButton("Radio 2");
+        JRadioButton radio3 = createRadioButton("Radio 3");
+
+        // Text field
+        JTextField textField = new JTextField(15);
+
+        // Button actions
+        ActionListener buttonActionListener = e -> {
+            JButton clickedButton = (JButton) e.getSource();
+            textField.setText(clickedButton.getText() + " - " + getColorName(clickedButton.getBackground()));
+        };
+
+        button1.addActionListener(buttonActionListener);
+        button2.addActionListener(buttonActionListener);
+        button3.addActionListener(buttonActionListener);
+        button4.addActionListener(buttonActionListener);
+
+        // Checkbox action
+        ItemListener checkBoxItemListener = e -> {
+            JCheckBox checkBox = (JCheckBox) e.getSource();
+            textField.setText("Selected Checkbox: " + checkBox.getText());
+        };
+
+        checkBox1.addItemListener(checkBoxItemListener);
+        checkBox2.addItemListener(checkBoxItemListener);
+
+        // Radio button action
+        ItemListener radioItemListener = e -> {
+            JRadioButton selectedRadio = (JRadioButton) e.getSource();
+            textField.setText("Selected Radio: " + selectedRadio.getText());
+        };
+
+        radio1.addItemListener(radioItemListener);
+        radio2.addItemListener(radioItemListener);
+        radio3.addItemListener(radioItemListener);
+
+        // Adding components to the frame
+        frame.add(button1);
+        frame.add(button2);
+        frame.add(button3);
+        frame.add(button4);
+        frame.add(checkBox1);
+        frame.add(checkBox2);
+        frame.add(radio1);
+        frame.add(radio2);
+        frame.add(radio3);
+        frame.add(textField);
+
+        frame.setSize(400, 300);
+        frame.setVisible(true);
+    }
+
+    private static JButton createButton(String text, Color color) {
+        JButton button = new JButton(text);
+        button.setBackground(color);
+        return button;
+    }
+
+    private static JCheckBox createCheckBox(String text) {
+        return new JCheckBox(text);
+    }
+
+    private static JRadioButton createRadioButton(String text) {
+        return new JRadioButton(text);
+    }
+
+    private static String getColorName(Color color) {
+        if (color.equals(Color.RED)) {
+            return "Red";
+        } else if (color.equals(Color.GREEN)) {
+            return "Green";
+        } else if (color.equals(Color.BLUE)) {
+            return "Blue";
+        } else if (color.equals(Color.YELLOW)) {
+            return "Yellow";
+        } else {
+            return "Unknown";
+        }
+    }
+}
