@@ -2,7 +2,7 @@
 
 ## Description
 
-This Java program demonstrates a simple Swing-based User Interface with buttons, checkboxes, radio buttons, and a text field. The UI allows users to interact with various components and displays information based on their selections.
+This Java program is part of a college assignment that demonstrates a simple Swing-based User Interface with buttons, checkboxes, radio buttons, and a text field. The UI allows users to interact with various components and displays information based on their selections.
 
 ## Features
 
