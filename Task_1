@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class UserInterfaceExample {
+public class Tasker {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
@@ -15,25 +15,21 @@ public class UserInterfaceExample {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
 
-        // Buttons
         JButton button1 = createButton("Button 1", Color.RED);
         JButton button2 = createButton("Button 2", Color.GREEN);
         JButton button3 = createButton("Button 3", Color.BLUE);
         JButton button4 = createButton("Button 4", Color.YELLOW);
 
-        // Checkboxes
         JCheckBox checkBox1 = createCheckBox("Checkbox 1");
         JCheckBox checkBox2 = createCheckBox("Checkbox 2");
 
-        // Radio buttons
         JRadioButton radio1 = createRadioButton("Radio 1");
         JRadioButton radio2 = createRadioButton("Radio 2");
         JRadioButton radio3 = createRadioButton("Radio 3");
 
-        // Text field
+        
         JTextField textField = new JTextField(15);
 
-        // Button actions
         ActionListener buttonActionListener = e -> {
             JButton clickedButton = (JButton) e.getSource();
             textField.setText(clickedButton.getText() + " - " + getColorName(clickedButton.getBackground()));
@@ -44,7 +40,6 @@ public class UserInterfaceExample {
         button3.addActionListener(buttonActionListener);
         button4.addActionListener(buttonActionListener);
 
-        // Checkbox action
         ItemListener checkBoxItemListener = e -> {
             JCheckBox checkBox = (JCheckBox) e.getSource();
             textField.setText("Selected Checkbox: " + checkBox.getText());
@@ -53,7 +48,6 @@ public class UserInterfaceExample {
         checkBox1.addItemListener(checkBoxItemListener);
         checkBox2.addItemListener(checkBoxItemListener);
 
-        // Radio button action
         ItemListener radioItemListener = e -> {
             JRadioButton selectedRadio = (JRadioButton) e.getSource();
             textField.setText("Selected Radio: " + selectedRadio.getText());
@@ -63,7 +57,6 @@ public class UserInterfaceExample {
         radio2.addItemListener(radioItemListener);
         radio3.addItemListener(radioItemListener);
 
-        // Adding components to the frame
         frame.add(button1);
         frame.add(button2);
         frame.add(button3);
