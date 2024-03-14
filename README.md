@@ -14,3 +14,7 @@ This Java program is part of a college assignment that demonstrates a simple Swi
 ## Prerequisites
 
 - Java Development Kit (JDK) installed on your machine.
+
+## Student Registration 
+
+![Screenshot 2024-03-14 081206](https://github.com/ManInTheHam/Java_Tasks/assets/91250124/e4efd9c7-d35f-4602-b1e7-b8a88c7ab9f1)
