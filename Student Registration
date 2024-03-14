@@ -1,0 +1,99 @@
+package studentform;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class StudentExamForm extends JFrame {
+    public StudentExamForm() {
+        setTitle("Student Registration Form");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500, 400);
+        setLayout(new BorderLayout());
+
+        JPanel formPanel = new JPanel(new GridLayout(0, 2, 10, 10));
+        formPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        JLabel nameLabel = new JLabel("Name:");
+        JTextField nameField = new JTextField();
+
+        JLabel ageLabel = new JLabel("Age:");
+        JTextField ageField = new JTextField();
+
+        JLabel genderLabel = new JLabel("Gender:");
+        String[] genders = {"Male", "Female", "Other"};
+        JComboBox<String> genderComboBox = new JComboBox<>(genders);
+
+        JLabel emailLabel = new JLabel("Email:");
+        JTextField emailField = new JTextField();
+
+        JLabel addressLabel = new JLabel("Address:");
+        JTextArea addressArea = new JTextArea();
+        JScrollPane addressScrollPane = new JScrollPane(addressArea);
+
+        JLabel phoneLabel = new JLabel("Phone:");
+        JTextField phoneField = new JTextField();
+
+        JLabel courseLabel = new JLabel("Course:");
+        String[] courses = {"Math", "Science", "History", "English"};
+        JList<String> courseList = new JList<>(courses);
+        JScrollPane courseScrollPane = new JScrollPane(courseList);
+
+        JLabel gradeLabel = new JLabel("Grade:");
+        JSlider gradeSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
+        gradeSlider.setMajorTickSpacing(20);
+        gradeSlider.setMinorTickSpacing(5);
+        gradeSlider.setPaintTicks(true);
+        gradeSlider.setPaintLabels(true);
+
+        JLabel paymentLabel = new JLabel("Payment:");
+        JRadioButton cashRadioButton = new JRadioButton("Cash");
+        JRadioButton cardRadioButton = new JRadioButton("Credit/Debit Card");
+        ButtonGroup paymentGroup = new ButtonGroup();
+        paymentGroup.add(cashRadioButton);
+        paymentGroup.add(cardRadioButton);
+
+        JButton submitButton = new JButton("Submit");
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Perform submission action
+                // You can retrieve values from the fields and process them here
+            }
+        });
+
+        formPanel.add(nameLabel);
+        formPanel.add(nameField);
+        formPanel.add(ageLabel);
+        formPanel.add(ageField);
+        formPanel.add(genderLabel);
+        formPanel.add(genderComboBox);
+        formPanel.add(emailLabel);
+        formPanel.add(emailField);
+        formPanel.add(addressLabel);
+        formPanel.add(addressScrollPane);
+        formPanel.add(phoneLabel);
+        formPanel.add(phoneField);
+        formPanel.add(courseLabel);
+        formPanel.add(courseScrollPane);
+        formPanel.add(gradeLabel);
+        formPanel.add(gradeSlider);
+        formPanel.add(paymentLabel);
+        formPanel.add(cashRadioButton);
+        formPanel.add(new JLabel()); // Empty label for spacing
+        formPanel.add(cardRadioButton);
+        formPanel.add(submitButton);
+
+        add(formPanel, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new StudentExamForm().setVisible(true);
+            }
+        });
+    }
+}
